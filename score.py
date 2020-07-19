@@ -97,6 +97,8 @@ def record():
                 config['score']['total_score'] = new_total_score
                 write_panel()
                 config.write()
+
+                git_commit()
                 return True
             else:
                 pass
@@ -107,7 +109,15 @@ def log_log(read, write, think, buy, r_index, w_index, t_index, b_index, old_sco
         now = datetime.now().strftime('%Y/%m/%d %H:%M:%S')
         file.writelines('log_time:{}\nr:{} w:{} t:{} b:{} r_index:{} w_index:{} t_index:{} b_index:{} old_score:{} new_score:{}\n'.format(now, read, write, think, buy, r_index, w_index, t_index, b_index, old_score, new_score))
     
-    
+
+def git_commit():
+    import os
+    os.system('git add .')
+    now = datetime.now().strftime('%Y/%m/%d %H:%M:%S')
+    os.system('git commit . -m "{}"'.format(now))
+    os.system('git push')
+
+        
 def main():
     update_total_count_day()
     read_panel()
