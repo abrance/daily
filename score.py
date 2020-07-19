@@ -20,7 +20,6 @@ total_upload_num = conf.get('score', 'total_upload_num')
 total_count_day = conf.get('score', 'total_count_day')
 
 
-
 def read_panel():
     sections = conf.sections()
     all_options = [conf.options(sec) for sec in sections]
@@ -118,7 +117,6 @@ def main():
     update_total_upload_num()
     # data_storage
     
-
 
 if __name__ == '__main__':
     main()
