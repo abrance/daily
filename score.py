@@ -149,9 +149,7 @@ def main():
     record()
     update_total_upload_num()
     get_your_level()
-    # data_storage
     
 
 if __name__ == '__main__':
     main()
-
