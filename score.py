@@ -1,3 +1,4 @@
+import os
 import configparser
 from random import choice
 from datetime import datetime
@@ -94,6 +95,7 @@ def record():
                 global total_score
                 new_total_score = str(int(int(total_score) + ts))
                 log_log(read, write, think, buy, r_index, w_index, think, buy, total_score, new_total_score)
+                total_score = int(int(total_score) + ts)
                 config['score']['total_score'] = new_total_score
                 write_panel()
                 config.write()
@@ -111,20 +113,42 @@ def log_log(read, write, think, buy, r_index, w_index, t_index, b_index, old_sco
     
 
 def git_commit():
-    import os
     os.system('git add .')
     now = datetime.now().strftime('%Y/%m/%d %H:%M:%S')
     os.system('git commit . -m "{}"'.format(now))
     os.system('git push')
 
-        
+
+def git_pull():
+    os.system('git pull')
+    
+
+def get_your_level() -> tuple:
+    global total_score
+    score = total_score
+    your_level = 1
+    while True:
+        if score < get_level_exp(your_level):
+            i = int(score/get_level_exp(your_level)*10)
+            print('-----\nyour_level:{} {{ {}{} }}\n'.format(your_level, '|'*i, '0'*(10-i)))
+            return (your_level, score)
+        else:
+            score -= get_level_exp(your_level)
+            your_level += 1
+    
+    
+def get_level_exp(level: int) -> int:
+    exp = 200*(1.2**(level-1))
+    return exp
+    
+    
 def main():
+    git_pull()
     update_total_count_day()
     read_panel()
-
     record()
-
     update_total_upload_num()
+    get_your_level()
     # data_storage
     
 
