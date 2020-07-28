@@ -2,3 +2,5 @@ log_time:2020/07/21 08:55:12
 r:3 w:1 t:0 b:0 r_index:7 w_index:73 t_index:0 b_index:0 old_score:0 new_score:94
 log_time:2020/07/22 20:24:38
 r:20 w:1 t:0 b:0 r_index:11 w_index:73 t_index:0 b_index:0 old_score:94 new_score:387
+log_time:2020/07/28 17:18:53
+r:10 w:0 t:3 b:2 r_index:7 w_index:71 t_index:3 b_index:2 old_score:387 new_score:843
