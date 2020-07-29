@@ -1,5 +1,42 @@
 from random import choice
 
+a = 'open your evernote'
+b = 'open your github'
+c = 'open your wechat'
+d = 'open your linux'
+e = 'open your pycharm, search todo'
+f = 'open your zentao search your bugs'
+f1 = 'read your books'
+g = 'write some readme'
+h = 'write some notes'
+i = 'clear your wait in browser and evernote'
+j = 'read your notes'
+
+ls = [a, b, c, d, e, f, f1, g, h, i, j]
+
+
+def asc_print_some_tips():
+    for item in ls:
+        print(item)
+
+
+def deacs_print_some_tips():
+    rls = ls.copy()
+    rls.reverse()
+    for item in rls:
+        print(item)
+        
+
+def get_me_some_tips():
+    mode = input('\nasc?\n y/n')
+    if not mode or mode == 'y':
+        asc_print_some_tips()
+    elif mode == 'n':
+        deacs_print_some_tips()
+    else:
+        get_me_some_tips()
+        
+
 
 def work_input():
     while True:
