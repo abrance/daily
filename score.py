@@ -33,7 +33,7 @@ def read_panel():
     total_score = conf.get('score', 'total_score')
     total_upload_num = conf.get('score', 'total_upload_num')
     total_count_day = conf.get('score', 'total_count_day')
-    print('create_time: {} last_modify_time: {} name: {}\ntotal_score: {} total_upload_num: {} total_count_day: {}'.format(create_time, last_modify_time, name, total_score, total_upload_num, total_count_day))
+    print('\ncreate_time: {} last_modify_time: {} name: {}\ntotal_score: {} total_upload_num: {} total_count_day: {}\n'.format(create_time, last_modify_time, name, total_score, total_upload_num, total_count_day))
 
 
 def write_panel():
@@ -82,7 +82,7 @@ def record():
         buy = input('b')
 
         while True:
-            confirm = input('read: {} write:{} think: {} buy: {}'.format(read, write, think, buy))
+            confirm = input('\nread: {} write:{} think: {} buy: {}\n'.format(read, write, think, buy))
             if confirm in ['r', 're']:
                 break
             elif confirm == '':
@@ -90,7 +90,7 @@ def record():
                 w_index = choice([71, 73, 79])
                 t_index = increment(think)
                 b_index = choice([191, 193, 197])
-                print('r: {} w: {} t: {} b: {}'.format(r_index, w_index, t_index, b_index))
+                print('r: \n{} w: {} t: {} b: {}\n'.format(r_index, w_index, t_index, b_index))
                 ts = int(read)*r_index+int(write)*w_index+int(think)*t_index+int(buy)*b_index
                 global total_score
                 new_total_score = str(int(int(total_score) + ts))
@@ -120,8 +120,12 @@ def git_commit():
 
 
 def git_pull():
-    os.system('git pull')
-    
+    ret = os.system('git pull')
+    if ret:
+        print('\ngit pull error\n')
+        sys.exit(1)
+    else:
+        return ret
 
 def get_your_level() -> tuple:
     global total_score
@@ -143,7 +147,7 @@ def get_level_exp(level: int) -> int:
     
     
 def main():
-    git_pull()
+    ret = git_pull()
     update_total_count_day()
     read_panel()
     record()
