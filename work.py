@@ -25,18 +25,31 @@ def deacs_print_some_tips():
     rls.reverse()
     for item in rls:
         print(item)
+
+
+def random_print_some_tips():
+    for item in ls:
+        print(choice(ls))
+        ret = input('\ncontinue? y/n/q\n')
+        if not ret or ret == 'y':
+            continue
+        elif ret in ('n', 'q'):
+            break
+        else:
+            pass
         
 
 def get_me_some_tips():
-    mode = input('\nasc?\n y/n')
+    mode = input('\nasc?\n y/n/r')
     if not mode or mode == 'y':
         asc_print_some_tips()
     elif mode == 'n':
         deacs_print_some_tips()
+    elif mode == 'r':
+        random_print_some_tips()
     else:
         get_me_some_tips()
         
-
 
 def work_input():
     while True:
