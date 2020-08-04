@@ -6,3 +6,5 @@ log_time:2020/07/28 17:18:53
 r:10 w:0 t:3 b:2 r_index:7 w_index:71 t_index:3 b_index:2 old_score:387 new_score:843
 log_time:2020/07/29 09:32:49
 r:5 w:1 t:5 b:0 r_index:5 w_index:71 t_index:5 b_index:0 old_score:843 new_score:944
+log_time:2020/08/04 13:49:47
+r:10 w:3 t:10 b:0 r_index:5 w_index:71 t_index:10 b_index:0 old_score:944 new_score:1222
