@@ -24,8 +24,11 @@ def merge_sort(ls, l, m, r):
         elif k == r+1:
             b += ls[j:m+1]
             break
-    if len(ls) > r+1:
-        ls = b+ls[r+1:]
+
+    for i in range(l, r):
+        ls[i] = b[i]
+    # if len(ls) > r+1:
+    #     ls = b+ls[r+1:]
 
 def merge(ls, l, r):
     if l == r:
